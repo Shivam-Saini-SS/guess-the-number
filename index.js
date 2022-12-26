@@ -2,6 +2,7 @@ let computerGuess
 let userGuess = []
 let userGuessUpdate = document.getElementById("text-output")
 let userNumberUpdate = document.getElementById("input-box")
+let footer = document.getElementById("footer")
 let audioNumberGuess = new Audio("./audio/number-guess.wav")
 let audioWinGame = new Audio("./audio/game-win.wav")
 let audioLoseGame = new Audio("./audio/game-lose.wav")
@@ -15,6 +16,7 @@ const init = () => {
 
 const startGame = () => {
   audioNewGame.play()
+  footer.classList.add("hide")
   document.getElementById("welcome-screen").style.display = "none"
   document.getElementById("game-area").style.display = "block"
 }
@@ -28,7 +30,6 @@ const newGameBegin = () => {
 // start a new game
 const startNewGame = () => {
   document.getElementById("new-game-button").style.display = "inline"
-  userNumberUpdate.setAttribute("disabled", true)
 }
 
 // main logic of our app
@@ -48,27 +49,21 @@ const compareGuess = () => {
       userNumberUpdate.value = ""
     } else {
       audioWinGame.play()
-      userGuessUpdate.innerHTML = "Yay! It's correct 😃"
+      userGuessUpdate.innerHTML = `You Win!! 😃<br>The correct number was ${computerGuess}`
+      userNumberUpdate.classList.add("hide")
       userNumberUpdate.value = ""
       startNewGame()
     }
+  } else if (userNumber === computerGuess) {
+    audioWinGame.play()
+    userGuessUpdate.innerHTML = `You Win 😃!!<br>The correct number was ${computerGuess}`
+    userNumberUpdate.classList.add("hide")
+    startNewGame()
   } else {
-    if (userNumber > computerGuess) {
-      audioLoseGame.play()
-      userGuessUpdate.innerHTML = `You Lose!! The correct number was ${computerGuess}`
-      userNumberUpdate.value = ""
-      startNewGame()
-    } else if (userNumber === computerGuess) {
-      audioWinGame.play()
-      userGuessUpdate.innerHTML = "Yay! It's correct 😃"
-      userNumberUpdate.value = ""
-      startNewGame()
-    } else {
-      audioLoseGame.play()
-      userGuessUpdate.innerHTML = `You Lose!! The correct number was ${computerGuess}`
-      userNumberUpdate.value = ""
-      startNewGame()
-    }
+    audioLoseGame.play()
+    userGuessUpdate.innerHTML = `You Lose!! 😢<br>The correct number was ${computerGuess}`
+    userNumberUpdate.classList.add("hide")
+    startNewGame()
   }
 
   document.getElementById("attempts").innerHTML = userGuess.length

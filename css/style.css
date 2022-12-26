@@ -28,6 +28,7 @@ main {
   border: solid #495057;
   border-radius: 1rem;
   padding: 4rem;
+  box-shadow: 0 1.2em 2.4em rgba(255, 245, 245, 0.15);
 }
 
 h2 {
@@ -42,6 +43,13 @@ h3 {
 p,
 span {
   font-size: 1.8rem;
+}
+
+footer {
+  margin-bottom: -3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .image {
@@ -71,6 +79,7 @@ button {
   font-size: 2rem;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  box-shadow: 0 1.2em 2.4em rgba(156, 54, 181, 0.25);
   transition: all 0.5s;
   user-select: none;
   -webkit-user-select: none;
@@ -111,6 +120,10 @@ input {
   font-size: 1.8rem;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
+}
+
+.hide {
+  display: none;
 }
 
 .stats {
