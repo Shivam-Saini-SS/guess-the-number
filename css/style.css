@@ -22,6 +22,7 @@ body {
 }
 
 main {
+  width: 55rem;
   text-align: center;
   background-color: #ffd4d4;
   border: solid #495057;
@@ -91,7 +92,6 @@ button:hover {
 /* Our Game Area */
 
 #game-area {
-  min-width: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

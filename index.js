@@ -2,14 +2,12 @@ let computerGuess
 let userGuess = []
 let userGuessUpdate = document.getElementById("text-output")
 let userNumberUpdate = document.getElementById("input-box")
-let audioWelcomeScreen = new Audio("./audio/welcome-screen.wav")
 let audioNumberGuess = new Audio("./audio/number-guess.wav")
 let audioWinGame = new Audio("./audio/game-win.wav")
 let audioLoseGame = new Audio("./audio/game-lose.wav")
 let audioNewGame = new Audio("./audio/new-game.wav")
 
 const init = () => {
-  audioWelcomeScreen.play()
   computerGuess = Math.floor(Math.random() * 100)
   document.getElementById("new-game-button").style.display = "none"
   document.getElementById("game-area").style.display = "none"

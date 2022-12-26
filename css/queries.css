@@ -1,26 +1,14 @@
 @media (max-width: 1200px) {
-  body {
-    width: 100vw;
-  }
-
   main {
     width: 50vw;
-    padding: 1.5rem;
-  }
-
-  input {
-    width: 20rem;
+    padding: 2rem;
   }
 }
 
 @media (max-width: 800px) {
-  body {
-    width: 100vw;
-  }
-
   main {
-    width: 80vw;
-    padding: 1rem;
+    width: 60vw;
+    padding: 1.5rem;
   }
 
   #welcomeScreen h2 {
@@ -36,10 +24,6 @@
     font-size: 1.5rem;
   }
 
-  input {
-    width: 20rem;
-  }
-
   .info {
     display: flex;
     flex-direction: column;
@@ -50,5 +34,20 @@
   .info span {
     margin-top: 1rem;
     font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  input {
+    margin-top: 4rem;
+    margin-bottom: 0;
+    width: auto;
   }
 }
