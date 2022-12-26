@@ -38,6 +38,11 @@
 }
 
 @media (max-width: 480px) {
+  main {
+    width: 80vw;
+    padding: 1rem;
+  }
+
   .stats {
     display: flex;
     flex-direction: column;
