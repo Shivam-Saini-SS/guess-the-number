@@ -90,27 +90,27 @@ const compareGuess = () => {
 }
 
 const easyMode = () => {
+  audioNewGame.play()
   maxGuess = 10
   computerGuess = Math.floor(Math.random() * 100)
   document.getElementById("attempts").innerHTML = maxGuess
-  computerGuess = Math.floor(Math.random() * 100)
   document.getElementById("playground").style.display = "block"
   document.getElementById("event-section").style.display = "none"
   userNumberUpdate.classList.remove("hide")
-  userNumberUpdate.value = ""
   userGuessUpdate.innerHTML = "All the Best!"
+  userNumberUpdate.value = ""
 }
 
 const hardMode = () => {
+  audioNewGame.play()
   maxGuess = 5
   computerGuess = Math.floor(Math.random() * 100)
   document.getElementById("attempts").innerHTML = maxGuess
-  computerGuess = Math.floor(Math.random() * 100)
   document.getElementById("playground").style.display = "block"
   document.getElementById("event-section").style.display = "none"
   userNumberUpdate.classList.remove("hide")
-  userNumberUpdate.value = ""
   userGuessUpdate.innerHTML = "All the Best!"
+  userNumberUpdate.value = ""
 }
 
 const playHow = () => {
