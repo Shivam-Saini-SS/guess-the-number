@@ -9,27 +9,42 @@ let audioLoseGame = new Audio("./audio/game-lose.wav")
 let audioNewGame = new Audio("./audio/new-game.wav")
 
 const init = () => {
-  computerGuess = Math.floor(Math.random() * 100)
   document.getElementById("new-game-button").style.display = "none"
+  document.getElementById("welcome-screen").style.display = "block"
   document.getElementById("game-area").style.display = "none"
+  document.getElementById("instructions").style.display = "none"
 }
 
 const startGame = () => {
   audioNewGame.play()
   footer.classList.add("hide")
+  document.getElementById("playground").style.display = "none"
   document.getElementById("welcome-screen").style.display = "none"
   document.getElementById("game-area").style.display = "block"
+  document.getElementById("instructions").style.display = "none"
+  document.getElementById("new-game-button").style.display = "none"
+  document.getElementById("event-section").style.display = "block"
+}
+
+// how to play
+const showInstructions = () => {
+  footer.classList.add("hide")
+  document.getElementById("welcome-screen").style.display = "none"
+  document.getElementById("game-area").style.display = "none"
+  document.getElementById("instructions").style.display = "block"
 }
 
 // reload the page
-const newGameBegin = () => {
-  audioNewGame.play()
-  window.location.reload()
-}
+// const newGameBegin = () => {
+//   audioNewGame.play()
+//   window.location.reload()
+// }
 
 // start a new game
 const startNewGame = () => {
   document.getElementById("new-game-button").style.display = "inline"
+  document.getElementById("guesses").innerHTML = " - "
+  document.getElementById("attempts").innerHTML = " - "
 }
 
 // main logic of our app
@@ -38,6 +53,7 @@ const compareGuess = () => {
   const userNumber = Number(document.getElementById("input-box").value)
   userGuess = [...userGuess, userNumber]
   document.getElementById("guesses").innerHTML = userGuess
+  document.getElementById("attempts").innerHTML = maxGuess - userGuess.length
 
   // check the value low or high
   if (userGuess.length < maxGuess) {
@@ -52,31 +68,52 @@ const compareGuess = () => {
       userGuessUpdate.innerHTML = `You Win!! 😃<br>The correct number was ${computerGuess}`
       userNumberUpdate.classList.add("hide")
       userNumberUpdate.value = ""
+      userGuess = []
       startNewGame()
     }
   } else if (userNumber === computerGuess) {
     audioWinGame.play()
     userGuessUpdate.innerHTML = `You Win 😃!!<br>The correct number was ${computerGuess}`
     userNumberUpdate.classList.add("hide")
+    userNumberUpdate.value = ""
+    userGuess = []
     startNewGame()
   } else {
     audioLoseGame.play()
     userGuessUpdate.innerHTML = `You Lose!! 😢<br>The correct number was ${computerGuess}`
     userNumberUpdate.classList.add("hide")
+    userNumberUpdate.value = ""
+    userGuess = []
     startNewGame()
   }
 
-  document.getElementById("attempts").innerHTML = userGuess.length
+  // document.getElementById("attempts").innerHTML = maxGuess - userGuess.length
 }
 
 const easyMode = () => {
-  audioNumberGuess.play()
   maxGuess = 10
-  startGame()
+  computerGuess = Math.floor(Math.random() * 100)
+  document.getElementById("attempts").innerHTML = maxGuess
+  computerGuess = Math.floor(Math.random() * 100)
+  document.getElementById("playground").style.display = "block"
+  document.getElementById("event-section").style.display = "none"
+  userNumberUpdate.classList.remove("hide")
+  userNumberUpdate.value = ""
+  userGuessUpdate.innerHTML = "All the Best!"
 }
 
 const hardMode = () => {
-  audioNumberGuess.play()
   maxGuess = 5
-  startGame()
+  computerGuess = Math.floor(Math.random() * 100)
+  document.getElementById("attempts").innerHTML = maxGuess
+  computerGuess = Math.floor(Math.random() * 100)
+  document.getElementById("playground").style.display = "block"
+  document.getElementById("event-section").style.display = "none"
+  userNumberUpdate.classList.remove("hide")
+  userNumberUpdate.value = ""
+  userGuessUpdate.innerHTML = "All the Best!"
+}
+
+const playHow = () => {
+  showInstructions()
 }
