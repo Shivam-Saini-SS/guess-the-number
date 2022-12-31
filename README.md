@@ -16,7 +16,7 @@ The main logic of the game development uses nested if-else loops to compare the 
 
 # Wanna try your Luck?
 
-Live Deployment - [Guess the Number](https://canyou-guess-thenumber.netlify.app/)
+Live Deployment - [Guess the Number](https://the-number-guess-game.netlify.app/)
 
 <h2 align="center">🤝 Support</h2>
 
